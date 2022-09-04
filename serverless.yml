@@ -1,0 +1,17 @@
+service: adobesign-api-poc
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: ap-southeast-1
+  lambdaHashingVersion: 20201221
+  versionFunctions: false
+
+functions:
+  baseUris:
+    handler: functions/api/baseURIs/index.handler
+    events:
+      - httpApi:
+          path: /baseUris
+          method: get
